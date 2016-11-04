@@ -61,7 +61,7 @@ button#signUp:hover {
   flex-direction: column;
   width: 300px;
   height: 600px;
-  background: grey;
+  background: #ECEFF1;
   padding: 16px;
 }
 
@@ -69,6 +69,7 @@ button#signUp:hover {
   display: flex;
   flex-direction: column;
   height: 95%;
+  overflow-y: scroll;
 }
 
 #bottom {
@@ -106,6 +107,7 @@ input:focus, textarea:focus {
 .textMessage {
   display: flex;
   flex-direction: column;
+  min-height: 75px;
 }
 
 .text {
