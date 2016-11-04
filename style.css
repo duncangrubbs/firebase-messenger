@@ -1,0 +1,135 @@
+body {
+    font-family: 'Arial';
+    background: #FFF;
+}
+
+h1 {
+    color: black;
+    margin: 8px;
+}
+
+input {
+    background: whitesmoke;
+    color: black;
+    width: 200px;
+    height: 30px;
+    border-radius: 3px;
+    border: none;
+    border-bottom: 5px black;
+    font-size: 16px;
+    padding: 8px;
+    margin: 8px;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+}
+
+button {
+    width: 100px;
+    height: 40px;
+    color: white;
+    border-radius: 3px;
+    border: none;
+    font-size: 16px;
+    margin: 6px;
+}
+
+button#logIn, #logOut {
+    background: #00BCD4;
+}
+
+button#logIn, #logOut:hover {
+    background: #0097A7;
+}
+
+button#signUp {
+    background: #673AB7;
+}
+
+button#signUp:hover {
+    background: #512DA8;
+}
+
+#wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+#panel {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 600px;
+  background: grey;
+  padding: 16px;
+}
+
+#messages {
+  display: flex;
+  flex-direction: column;
+  height: 95%;
+}
+
+#bottom {
+  display: flex;
+  flex-direction: row;
+  height: 5%;
+  padding: 8px;
+}
+
+#send {
+  width: 40px;
+  height: 40px;
+}
+
+#message {
+  width: 80%;
+  height: 65%;
+  border: none;
+  border-radius: 3px;
+  background: whitesmoke;
+  padding: 8px;
+  font-size: 16px;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+}
+
+#line {
+  width: 100%;
+  height: 3px;
+  background: grey;
+}
+
+.textMessage {
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding-left: 8px;
+  padding-right: 16px;
+  background: white;
+  height: 30px;
+  border-radius: 10px;
+}
+
+.name {
+  padding-left: 38px;
+  padding-bottom: 4px;
+}
+
+.profile {
+  width: 36px;
+  height: 36px;
+}
+
+.lower {
+  display: flex;
+  flex-direction: row;
+}

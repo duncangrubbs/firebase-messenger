@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Firebase Test</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <div id="wrapper">
+
+      <h1>Sign In with Your Email</h1>
+
+      <input id="email" type="text" placeholder="Email">
+      <input id="password" type="password" placeholder="Password">
+
+      <div id="buttons">
+        <button id="logIn" >Log In</button>
+        <button id="signUp">Sign Up</button>
+      </div>
+
+    </div>
+
+    <div id="app" style="display: none">
+      <div id="panel">
+        <div id="messages">
+
+          <div class="textMessage">
+            <div class="name">Duncan</div>
+            <div class="lower">
+              <img src="send.png" class="profile" />
+              <div class="text">Yo what's up</div>
+            </div>
+          </div>
+        </div>
+        <div id="line"></div>
+        <div id="bottom">
+          <input id="message" type="text" placeholder="Message">
+          <img src="send.png" id="send" />
+        </div>
+      </div>
+
+      <button id="logOut">Log Out</button>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
