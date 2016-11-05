@@ -87,9 +87,10 @@ databaseRef.on('child_added', snapshot => {
 
 function addMessage(chat) {
   var div = document.createElement('div');
-  div.innerHTML = "<div class='name'>" + chat.name + "</div><div class='lower'><img src='send.png' class='profile' /><div class='text'>" + chat.message + "</div></div>";
+  div.innerHTML = "<div class='name'>" + chat.name + "</div><div class='lower'><div class='text'>" + chat.message + "</div></div>";
 
   div.setAttribute('class', 'textMessage');
   $messages.appendChild(div);
   $message.value = '';
+  $messages.scrollTop = $messages.scrollHeight;
 }
