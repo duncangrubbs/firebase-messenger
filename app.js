@@ -12,52 +12,48 @@ const app = firebase.initializeApp(config);
 const $app = document.getElementById('app');
 const $wrapper = document.getElementById('wrapper');
 
-const $email = document.getElementById('email');
-const $password = document.getElementById('password');
 const $logIn = document.getElementById('logIn');
-const $signUp = document.getElementById('signUp');
 const $logOut = document.getElementById('logOut');
+
+const provider = new firebase.auth.GoogleAuthProvider();
+provider.addScope('https://www.googleapis.com/auth/plus.login');
 
 let user;
 
+// BEGIN COMMENTED OUT STUFF
+
 $logIn.addEventListener('click', () => {
-  const email = $email.value;
-  const password = $password.value;
-  const auth = firebase.auth();
+  firebase.auth().signInWithPopup(provider).then(result => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const token = result.credential.accessToken;
+    // The signed-in user info.
+    user = result.user;
 
-  const promise = auth.signInWithEmailAndPassword(email,
-                                                  password);
-  promise.catch(evt => console.warn(evt.message));
+    console.log(user.name);
 
-  $wrapper.style.display = 'none';
-  $app.style.display = 'block';
-});
+    $wrapper.style.display = 'none';
+    $app.style.display = 'block';
+  }).catch(error => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    const credential = error.credential;
 
-$signUp.addEventListener('click', () => {
-  const email = $email.value;
-  const password = $password.value;
-  const auth = firebase.auth();
-  // TODO check for real email
-  const promise = auth.createUserWithEmailAndPassword(email,
-                                                      password);
-  promise
-    .catch(e => console.warn(e.message));
-
-  $wrapper.style.display = 'none';
-  $app.style.display = 'flex';
+    console.log('ERRORS:');
+    console.log(errorCode);
+    console.log(errorMessage);
+    console.log(email);
+    console.log(credential);
+  });
 });
 
 $logOut.addEventListener('click', () => {
   firebase.auth().signOut();
-  $email.value = '';
-  $password.value = '';
   $wrapper.style.display = 'flex';
   $app.style.display = 'none';
-});
-
-$password.addEventListener('keyup', evt => {
-  if (evt.keyCode === 13)
-    $logIn.click();
 });
 
 firebase.auth().onAuthStateChanged(fireBaseUser => {
@@ -69,6 +65,8 @@ firebase.auth().onAuthStateChanged(fireBaseUser => {
     console.info('Not Logged In');
   }
 });
+
+// END COMMENTED OUT SECTION
 
 const $send = document.getElementById('send');
 const $message = document.getElementById('message');
@@ -99,8 +97,6 @@ databaseRef.on('child_added', snapshot => {
   const chat = snapshot.val();
   addMessage(chat);
 });
-
-
 
 $message.addEventListener('keyup', evt => {
   if (evt.keyCode === 13)
