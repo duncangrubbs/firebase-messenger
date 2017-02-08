@@ -1,14 +1,21 @@
+/* OVERALL RULES */
+:root {
+  --app-primary-color: #2196F3;
+  --app-accent-color: #009688;
+  --app-secondary-color: #673AB7;
+}
+
 html, body {
-    font-family: 'Arial';
-    background: #FFF;
-    margin: 0;
-    padding: 0;
+  font-family: 'Arial';
+  background: #FFF;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
-    color: black;
-    margin: 8px;
-    font-size: 3vh;
+  color: black;
+  margin: 8px;
+  font-size: 3vh;
 }
 
 input {
@@ -27,37 +34,37 @@ input {
   padding: 8px;
 }
 
-textarea:focus, input:focus{
+textarea:focus, input:focus {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   outline: none;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 button {
-    width: 30vw;
-    height: 5vh;
-    color: white;
-    border-radius: 3px;
-    border: none;
-    font-size: 2.5vh;
-    margin: 6px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  width: 30vw;
+  height: 5vh;
+  color: white;
+  border-radius: 3px;
+  border: none;
+  font-size: 2.5vh;
+  margin: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
 button#logIn, #logOut {
-    background: #2196F3;
+  background: var(--app-primary-color);
 }
 
 button#logIn, #logOut:hover {
-    background: #1976D2;
+  background: var(--app-accent-color);
 }
 
 button#signUp {
-    background: #673AB7;
+  background: var(--app-secondary-color);
 }
 
 button#signUp:hover {
-    background: #512DA8;
+  background: var(--app-secondary-color);
 }
 
 button#logOut {
@@ -66,18 +73,19 @@ button#logOut {
   width: 20vh;
 }
 
+/* ID RULES  --- SORTED LINEAR */
+
 #wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 #app {
   width: 100vw;
   overflow-y: hidden;
-  /*max-width: 600px;*/
   margin: 0;
 }
 
@@ -88,95 +96,79 @@ button#logOut {
   height: 100vh;
 }
 
+.line {
+  width: 100vw;
+  height: 4px;
+  border-radius: 3px;
+  background: var(--app-primary-color);
+  margin-top: 8px;
+}
+
 #messages {
   display: flex;
   flex-direction: column;
-  height: 95%;
+  height: 80%;
+  width: 100%;
   overflow-y: scroll;
 }
 
 #bottom {
   display: flex;
   flex-direction: row;
-  height: 5%;
+  align-items: center;
   padding: 8px;
 }
 
-#send {
-  width: 64px;
-  height: 64px;
-  margin-left: 16px;
-  margin-top: 8px;
-}
-
 #message {
-  width: 80%;
-  height: 65%;
+  width: 80vw;
+  height: 5vh;
   border: none;
   border-radius: 3px;
   padding: 8px;
   font-size: 2vh;
 }
 
-#title {
+#send {
+  width: 64px;
+  height: 64px;
   margin-left: 16px;
 }
 
-#top-bar {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 7vh;
-  background: #00BCD4;
-  color: white;
-  font-size: 2vh;
-}
-
-input:focus, textarea:focus {
-    outline: none;
-}
-
-#line {
-  width: 100%;
-  height: 4px;
-  border-radius: 3px;
-  background: #00BCD4;
-  margin-top: 8px;
-}
+/* CLASS RULES */
 
 .textMessage {
   display: flex;
   flex-direction: column;
-  min-height: 75px;
+  min-height: 6vh;
+  padding: 8px;
+  margin: 8px;
 }
 
 .text {
   display: flex;
   align-items: center;
   text-align: center;
-  background: #00BCD4;
+  background: var(--app-primary-color);
   border-radius: 3px;
-  margin: 8px;
   padding-left: 8px;
   padding-right: 8px;
   color: #FFF;
   font-size: 2vh;
   min-height: 5vh;
+  overflow-y: visible;
+  max-width: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 .name {
-  margin-top: 32px;
-  padding: 8px;
+  position: relative;
   font-size: 2vh;
-}
-
-.profile {
-  width: 36px;
-  height: 36px;
 }
 
 .lower {
   display: flex;
-  flex-direction: row;
-  height: 60px;
+}
+
+.lower-line {
+  margin: 0;
 }

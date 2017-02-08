@@ -50,8 +50,14 @@ $logOut.addEventListener('click', e => {
     firebase.auth().signOut();
     $email.value = '';
     $password.value = '';
-    $wrapper.style.display = 'block';
+    $wrapper.style.display = 'flex';
     $app.style.display = 'none';
+});
+
+$password.addEventListener('keyup', evt => {
+    if (evt.keyCode == 13) {
+        $logIn.click();
+    }
 });
 
 firebase.auth().onAuthStateChanged(fireBaseUser => {
@@ -75,7 +81,6 @@ var databaseRef = database.ref().child('chat');
 
 $send.addEventListener('click', event => {
   var chat = { name: user, message: $message.value};
-  console.log('click');
 
   databaseRef.push().set(chat);
 });
@@ -87,10 +92,16 @@ databaseRef.on('child_added', snapshot => {
 
 function addMessage(chat) {
   var div = document.createElement('div');
-  div.innerHTML = "<div class='name'>" + chat.name + "</div><div class='lower'><div class='text'>" + chat.message + "</div></div>";
+  div.innerHTML = `<div class="name">${chat.name}</div><div class="lower"><div class="text">${chat.message}</div></div>`;
 
   div.setAttribute('class', 'textMessage');
   $messages.appendChild(div);
   $message.value = '';
   $messages.scrollTop = $messages.scrollHeight;
 }
+
+$message.addEventListener('keyup', evt => {
+    if(evt.keyCode == 13){
+        $send.click();
+    }
+});
