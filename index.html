@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Firebase Messenger</title>
     <link rel="icon" href="./res/favicon.ico">
+    <script src="./elements/text-message.js"></script>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -13,7 +14,7 @@
       <h1>Sign In with Google</h1>
 
       <div id="buttons">
-        <button id="logIn" >Log In</button>
+        <button id="logIn">Log In</button>
       </div>
 
     </div>
@@ -23,12 +24,14 @@
         <button id="logOut">Log Out</button>
         <div class="line"></div>
 
-        <div id="messages"></div>
+        <div id="messages">
+          <text-message name="Duncan Grubbs" text="TEST"></text-message>
+        </div>
         <div class="line lower-line"></div>
 
         <div id="bottom">
-          <input id="message" type="text" placeholder="Message">
-          <img src="./res/send.png" id="send" />
+          <input id="message" type="text" placeholder="Firebase Message">
+          <img src="./res/forward.svg" id="send" />
         </div>
 
       </div>

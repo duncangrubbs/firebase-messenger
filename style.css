@@ -12,6 +12,15 @@ html, body {
   padding: 0;
 }
 
+text-message {
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  margin: 4px;
+  min-height: 6vh;
+}
+
 h1 {
   color: black;
   margin: 8px;
@@ -55,10 +64,6 @@ button#logIn, #logOut {
   background: var(--app-primary-color);
 }
 
-button#logIn, #logOut:hover {
-  background: var(--app-accent-color);
-}
-
 button#signUp {
   background: var(--app-secondary-color);
 }
@@ -84,7 +89,6 @@ button#logOut {
 }
 
 #app {
-  width: 100vw;
   overflow-y: hidden;
   margin: 0;
 }
@@ -92,16 +96,14 @@ button#logOut {
 #panel {
   display: flex;
   flex-direction: column;
-  width: 98vw;
   height: 100vh;
 }
 
 .line {
   width: 100vw;
-  height: 4px;
+  height: .5vh;
   border-radius: 3px;
   background: var(--app-primary-color);
-  margin-top: 8px;
 }
 
 #messages {
@@ -110,6 +112,7 @@ button#logOut {
   height: 80%;
   width: 100%;
   overflow-y: scroll;
+  flex-grow: 8;
 }
 
 #bottom {
@@ -120,7 +123,7 @@ button#logOut {
 }
 
 #message {
-  width: 80vw;
+  width: 78vw;
   height: 5vh;
   border: none;
   border-radius: 3px;
@@ -131,7 +134,6 @@ button#logOut {
 #send {
   width: 64px;
   height: 64px;
-  margin-left: 16px;
 }
 
 /* CLASS RULES */
@@ -139,24 +141,23 @@ button#logOut {
 .textMessage {
   display: flex;
   flex-direction: column;
-  min-height: 6vh;
   padding: 8px;
-  margin: 8px;
+  margin: 4px;
+  min-height: 6vh;
 }
 
 .text {
   display: flex;
   align-items: center;
-  text-align: center;
   background: var(--app-primary-color);
+  color: #FFF;
   border-radius: 3px;
   padding-left: 8px;
   padding-right: 8px;
-  color: #FFF;
-  font-size: 2vh;
   min-height: 5vh;
-  overflow-y: visible;
   max-width: 50%;
+  overflow-y: visible;
+  font-size: 2vh;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
@@ -167,8 +168,4 @@ button#logOut {
 
 .lower {
   display: flex;
-}
-
-.lower-line {
-  margin: 0;
 }
