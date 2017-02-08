@@ -66,7 +66,7 @@ firebase.auth().onAuthStateChanged(fireBaseUser => {
         $wrapper.style.display = 'none';
         $app.style.display = 'flex';
     } else {
-        console.log('Not Logged In');
+        console.info('Not Logged In');
     }
 });
 
