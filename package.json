@@ -1,0 +1,24 @@
+{
+  "name": "firebase-messenger",
+  "version": "1.0.0",
+  "description": "A messager made with Firebase.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duncangrubbs/firebase-messenger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/duncangrubbs/firebase-messenger/issues"
+  },
+  "homepage": "https://github.com/duncangrubbs/firebase-messenger#readme",
+  "devDependencies": {
+    "eslint": "^3.15.0",
+    "eslint-config-airbnb-base": "^11.1.0",
+    "eslint-plugin-import": "^2.2.0"
+  }
+}
