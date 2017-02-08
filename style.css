@@ -1,4 +1,4 @@
-body {
+html, body {
     font-family: 'Arial';
     background: #FFF;
     margin: 0;
@@ -8,33 +8,40 @@ body {
 h1 {
     color: black;
     margin: 8px;
+    font-size: 3vh;
 }
 
 input {
-    background: whitesmoke;
-    color: black;
-    width: 200px;
-    height: 30px;
-    border-radius: 3px;
-    border: none;
-    border-bottom: 5px black;
-    font-size: 1vw;
-    padding: 8px;
-    margin: 8px;
+  display: flex;
+  border: none;
+  background: #FFF;
+  height: 6vh;
+  min-width: 90%;
+  border-radius: 3px;
+  color: #000;
+  max-width: 300px;
+  margin: 8px;
+  font-size: 3vh;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  padding: 8px;
 }
 
-input:focus, textarea:focus {
-    outline: none;
+textarea:focus, input:focus{
+  outline: none;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 button {
-    width: 100px;
-    height: 40px;
+    width: 30vw;
+    height: 5vh;
     color: white;
     border-radius: 3px;
     border: none;
-    font-size: 16px;
+    font-size: 2.5vh;
     margin: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
 button#logIn, #logOut {
@@ -54,28 +61,31 @@ button#signUp:hover {
 }
 
 button#logOut {
-  align-self: flex-end;
+  font-size: 2vh;
+  height: 5vh;
+  width: 20vh;
 }
 
 #wrapper {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    max-width: 600px;
 }
 
 #app {
-  width: 100%;
-  max-width: 600px;
+  width: 100vw;
+  overflow-y: hidden;
+  /*max-width: 600px;*/
+  margin: 0;
 }
 
 #panel {
   display: flex;
   flex-direction: column;
   width: 98vw;
-  height: 83vh;
-  background: #ECEFF1;
-  padding: 16px;
+  height: 100vh;
 }
 
 #messages {
@@ -93,9 +103,10 @@ button#logOut {
 }
 
 #send {
-  width: 40px;
-  height: 40px;
+  width: 64px;
+  height: 64px;
   margin-left: 16px;
+  margin-top: 8px;
 }
 
 #message {
@@ -104,7 +115,7 @@ button#logOut {
   border: none;
   border-radius: 3px;
   padding: 8px;
-  font-size: 16px;
+  font-size: 2vh;
 }
 
 #title {
@@ -113,13 +124,12 @@ button#logOut {
 
 #top-bar {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100vw;
-  height: 64px;
+  flex-direction: row;
+  width: 100%;
+  height: 7vh;
   background: #00BCD4;
   color: white;
-  font-size: 24px;
+  font-size: 2vh;
 }
 
 input:focus, textarea:focus {
@@ -144,17 +154,20 @@ input:focus, textarea:focus {
   display: flex;
   align-items: center;
   text-align: center;
-  padding-left: 8px;
-  padding-right: 16px;
   background: #00BCD4;
-  height: 30px;
-  border-radius: 10px;
-  margin-left: 8px;
+  border-radius: 3px;
+  margin: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
   color: #FFF;
+  font-size: 2vh;
+  min-height: 5vh;
 }
 
 .name {
-  padding-bottom: 4px;
+  margin-top: 32px;
+  padding: 8px;
+  font-size: 2vh;
 }
 
 .profile {
@@ -165,4 +178,5 @@ input:focus, textarea:focus {
 .lower {
   display: flex;
   flex-direction: row;
+  height: 60px;
 }
