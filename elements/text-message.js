@@ -1,7 +1,6 @@
 class TextMessage extends HTMLElement {
   constructor() {
     super();
-    console.log('const');
     const shadow = this.attachShadow({ mode: 'open' });
 
     // Create a standard img element and set it's attributes.
@@ -19,11 +18,11 @@ class TextMessage extends HTMLElement {
   }
 
   connectedCallback() {
-    console.log('Connected');
+
   }
 
   disconnectedCallback() {
-    console.log('Disconnected');
+
   }
 
   // Monitor the 'name' attribute for changes.
@@ -33,10 +32,8 @@ class TextMessage extends HTMLElement {
   attributeChangedCallback(attr, oldValue, newValue) {
     if (attr === 'name') {
       this.name.textContent = newValue;
-      console.log('Name');
-    } else if (attr === 'message') {
+    } else if (attr === 'message')
       this.text.textContent = newValue;
-    }
   }
 
 }

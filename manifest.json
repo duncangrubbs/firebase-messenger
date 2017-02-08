@@ -1,13 +1,13 @@
 {
-  "name": "lettuce go",
-  "short_name": "Lettuce",
+  "name": "Firebase Messager",
+  "short_name": "Messager",
   "start_url": "/?homescreen=1",
   "display": "standalone",
   "theme_color": "#2196F3",
   "background_color": "#2196F3",
   "icons": [
     {
-      "src": "res/favicon.ico",
+      "src": "/res/favicon.ico",
       "type": "image/x-icon"
     }
   ]

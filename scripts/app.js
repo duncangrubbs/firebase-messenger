@@ -29,8 +29,9 @@ $logIn.addEventListener('click', () => {
     // The signed-in user info.
     user = result.user;
 
-    $wrapper.style.display = 'none';
-    $app.style.display = 'block';
+    // $wrapper.style.display = 'none';
+    // $app.style.display = 'block';
+    window.location.href = '/app.html';
   }).catch(error => {
     // Handle Errors here.
     const errorCode = error.code;
