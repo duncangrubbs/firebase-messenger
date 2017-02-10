@@ -30,9 +30,9 @@ class TextMessage extends HTMLElement {
 
   // Respond to attribute changes.
   attributeChangedCallback(attr, oldValue, newValue) {
-    if (attr === 'name') {
+    if (attr === 'name')
       this.name.textContent = newValue;
-    } else if (attr === 'message')
+    else if (attr === 'message')
       this.text.textContent = newValue;
   }
 
