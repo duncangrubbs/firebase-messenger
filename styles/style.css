@@ -61,16 +61,12 @@ button {
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
+button:hover {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
 button#logIn, #logOut {
   background: var(--app-primary-color);
-}
-
-button#signUp {
-  background: var(--app-secondary-color);
-}
-
-button#signUp:hover {
-  background: var(--app-secondary-color);
 }
 
 button#logOut {
@@ -143,7 +139,6 @@ button#logOut {
   display: flex;
   flex-direction: column;
   padding: 8px;
-  margin: 4px;
   min-height: 6vh;
 }
 
@@ -152,7 +147,7 @@ button#logOut {
   align-items: center;
   background: var(--app-primary-color);
   color: #FFF;
-  border-radius: 3px;
+  border-radius: 10px;
   padding-left: 8px;
   padding-right: 8px;
   min-height: 5vh;
@@ -165,6 +160,7 @@ button#logOut {
 .name {
   position: relative;
   font-size: 2vh;
+  padding-bottom: 6px;
 }
 
 .lower {
