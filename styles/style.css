@@ -3,13 +3,33 @@
   --app-primary-color: #2196F3;
   --app-accent-color: #009688;
   --app-secondary-color: #673AB7;
+
+  --app-dark-primary-color: #03A9F4;
+  --app-dark-background-color: #212121;
+  --app-dark-accent-color: #5C6BC0;
+  --app-dark-secondary-color: #4CAF50;
+  --app-dark-text-color: #FFF;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: var(--app-dark-text-color);
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: var(--app-dark-text-color);
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: var(--app-dark-text-color);
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: var(--app-dark-text-color);
 }
 
 html, body {
   font-family: 'Roboto', sans-serif;
-  background: #FFF;
+  background: var(--app-dark-background-color);
   margin: 0;
   padding: 0;
+  color: var(--app-dark-text-color);
 }
 
 text-message {
@@ -22,7 +42,7 @@ text-message {
 }
 
 h1 {
-  color: black;
+  color: var(--app-dark-text-color);
   margin: 8px;
   font-size: 3vh;
 }
@@ -30,22 +50,23 @@ h1 {
 input {
   display: flex;
   border: none;
-  background: #FFF;
+  background: var(--app-dark-secondary-color);
   height: 6vh;
-  min-width: 90%;
   border-radius: 3px;
-  color: #000;
-  max-width: 300px;
+  color: var(--app-dark-text-color);
+  flex-grow: 8;
   margin: 8px;
   font-size: 3vh;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   padding: 8px;
+  background: #66BB6A;
 }
 
 textarea:focus, input:focus {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   outline: none;
+  background: var(--app-dark-secondary-color);
 }
 
 button {
@@ -59,14 +80,12 @@ button {
   margin: 6px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  background: var(--app-dark-primary-color);
 }
 
 button:hover {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-
-button#logIn, #logOut {
-  background: var(--app-primary-color);
+  background: var(--app-dark-accent-color);
 }
 
 button#logOut {
@@ -100,7 +119,7 @@ button#logOut {
   width: 100vw;
   height: .5vh;
   border-radius: 3px;
-  background: var(--app-primary-color);
+  background: var(--app-dark-primary-color);
 }
 
 #messages {
@@ -129,8 +148,8 @@ button#logOut {
 }
 
 #send {
-  width: 64px;
-  height: 64px;
+  width: 5vw;
+  height: 5vw;
 }
 
 /* CLASS RULES */
@@ -138,14 +157,14 @@ button#logOut {
 .textMessage {
   display: flex;
   flex-direction: column;
-  padding: 8px;
+  margin: 12px;
   min-height: 6vh;
 }
 
 .text {
   display: flex;
   align-items: center;
-  background: var(--app-primary-color);
+  background: var(--app-dark-secondary-color);
   color: #FFF;
   border-radius: 10px;
   padding-left: 8px;
