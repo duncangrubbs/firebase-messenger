@@ -21,6 +21,9 @@ provider.addScope('https://www.googleapis.com/auth/plus.login');
 
 let user;
 
+// Theme and Indexed DB Stuff
+// Theme is true if light, false if dark
+
 // Primary, background, accent, secondary, text
 const darkTheme = ['#03A9F4', '#212121', '#5C6BC0', '#4CAF50', '#FFF'];
 
@@ -29,19 +32,47 @@ const lightTheme = ['#2196F3', '#FFF', '#009688', '#673AB7', '#000'];
 const colorNames = ['--app-primary-color', '--app-background-color', '--app-accent-color',
                     '--app-secondary-color', '--app-text-color'];
 
-let theme = true;
+console.log(`First log theme: ${localStorage.getItem('theme')}`);
 
-$theme.addEventListener('click', () => {
-  if (theme)
-    // Switch to dark theme
+// Takes boolean, changes theme to that (light = true, dark = false)
+function updateTheme(thm) {
+  if (thm === 'dark')
     for (let i = 0; i < darkTheme.length; i++)
       document.documentElement.style.setProperty(colorNames[i], darkTheme[i]);
   else
-    // Switch to light theme
     for (let i = 0; i < darkTheme.length; i++)
       document.documentElement.style.setProperty(colorNames[i], lightTheme[i]);
+  console.log(`End of update theme: ${localStorage.getItem('theme')}`);
+}
 
-  theme = !theme;
+if (!window.indexedDB) {
+  console.warn('Your browser does not support IndexedDB');
+} else {
+  // Check if there is already a preferred theme
+  if (!localStorage.getItem('theme')) {
+    // Otherwise set the theme to light (default)
+    console.log('Theme not in local storage');
+    localStorage.setItem('theme', 'light');
+    // Make sure theme displaying is preferred in the beginning
+    updateTheme(localStorage.getItem('theme'));
+  } else {
+    updateTheme(localStorage.getItem('theme'));
+  }
+}
+
+// Anytime update theme is clicked, switch the theme
+$theme.addEventListener('click', () => {
+  const currentTheme = localStorage.getItem('theme');
+  console.log(`Current theme is: ${currentTheme}`);
+  let newTheme;
+  if (currentTheme === 'light') {
+    newTheme = 'dark';
+  } else {
+    newTheme = 'light';
+  }
+  console.log(`New theme is: ${newTheme}`);
+  localStorage.setItem('theme', newTheme);
+  updateTheme(newTheme);
 });
 
 // BEGIN COMMENTED OUT STUFF
