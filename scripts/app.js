@@ -26,22 +26,21 @@ const darkTheme = ['#03A9F4', '#212121', '#5C6BC0', '#4CAF50', '#FFF'];
 
 const lightTheme = ['#2196F3', '#FFF', '#009688', '#673AB7', '#000'];
 
-const darkNames = ['--app-primary-color', '--app-background-color', '--app-accent-color', '--app-secondary-color', '--app-text-color'];
+const colorNames = ['--app-primary-color', '--app-background-color', '--app-accent-color',
+                    '--app-secondary-color', '--app-text-color'];
 
 let theme = true;
 
 $theme.addEventListener('click', () => {
-  if (theme) {
-    //Switch to dark theme
-    for (let i = 0; i < darkTheme.length; i++) {
-      document.documentElement.style.setProperty(darkNames[i], darkTheme[i]);
-    }
-  } else {
-    //Switch to light theme
-    for (let i = 0; i < darkTheme.length; i++) {
-      document.documentElement.style.setProperty(darkNames[i], lightTheme[i]);
-    }
-  }
+  if (theme)
+    // Switch to dark theme
+    for (let i = 0; i < darkTheme.length; i++)
+      document.documentElement.style.setProperty(colorNames[i], darkTheme[i]);
+  else
+    // Switch to light theme
+    for (let i = 0; i < darkTheme.length; i++)
+      document.documentElement.style.setProperty(colorNames[i], lightTheme[i]);
+
   theme = !theme;
 });
 
@@ -57,13 +56,7 @@ $logIn.addEventListener('click', () => {
     $wrapper.style.display = 'none';
     $app.style.display = 'block';
   }).catch(error => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
-    const credential = error.credential;
+    console.log(error);
   });
 });
 

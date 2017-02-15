@@ -7,17 +7,21 @@
   --app-text-color: #FFF;
 }
 
+::-webkit-scrollbar { 
+    display: none;
+}
+
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: var(--app-background-color);
+  color: #000;
 }
 ::-moz-placeholder { /* Firefox 19+ */
-  color: var(--app-background-color);
+  color: #000;
 }
 :-ms-input-placeholder { /* IE 10+ */
-  color: var(--app-background-color);
+  color: #000;
 }
 :-moz-placeholder { /* Firefox 18- */
-  color: var(--app-background-color);
+  color: #000;
 }
 
 html, body {
@@ -49,7 +53,7 @@ input {
   background: var(--app-secondary-color);
   height: 6vh;
   border-radius: 3px;
-  color: var(--app-text-color);
+  color: #000;
   flex-grow: 8;
   margin: 8px;
   font-size: 3vh;
@@ -62,7 +66,6 @@ input {
 textarea:focus, input:focus {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   outline: none;
-  background: var(--app-secondary-color);
 }
 
 button {
@@ -84,7 +87,7 @@ button:hover {
   background: var(--app-accent-color);
 }
 
-button#logOut {
+button#logOut, button#theme {
   font-size: 2vh;
   height: 5vh;
   width: 20vh;
