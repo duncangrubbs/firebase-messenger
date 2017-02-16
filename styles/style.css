@@ -70,7 +70,7 @@ textarea:focus, input:focus {
 
 button {
   width: 30vw;
-  min-width: 180px;
+  min-width: 150px;
   height: 5vh;
   color: white;
   border-radius: 3px;
@@ -90,7 +90,7 @@ button:hover {
 button#logOut, button#theme {
   font-size: 2vh;
   height: 5vh;
-  width: 20vh;
+  width: 5vh;
 }
 
 /* ID RULES  --- SORTED LINEAR */
@@ -112,6 +112,11 @@ button#logOut, button#theme {
   display: flex;
   flex-direction: column;
   height: 100vh;
+}
+
+#top-bar {
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .line {

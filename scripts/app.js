@@ -32,8 +32,6 @@ const lightTheme = ['#2196F3', '#FFF', '#009688', '#673AB7', '#000'];
 const colorNames = ['--app-primary-color', '--app-background-color', '--app-accent-color',
                     '--app-secondary-color', '--app-text-color'];
 
-console.log(`First log theme: ${localStorage.getItem('theme')}`);
-
 // Takes boolean, changes theme to that (light = true, dark = false)
 function updateTheme(thm) {
   if (thm === 'dark')
@@ -51,7 +49,6 @@ if (!window.indexedDB) {
   // Check if there is already a preferred theme
   if (!localStorage.getItem('theme')) {
     // Otherwise set the theme to light (default)
-    console.log('Theme not in local storage');
     localStorage.setItem('theme', 'light');
     // Make sure theme displaying is preferred in the beginning
     updateTheme(localStorage.getItem('theme'));
@@ -63,14 +60,12 @@ if (!window.indexedDB) {
 // Anytime update theme is clicked, switch the theme
 $theme.addEventListener('click', () => {
   const currentTheme = localStorage.getItem('theme');
-  console.log(`Current theme is: ${currentTheme}`);
   let newTheme;
   if (currentTheme === 'light') {
     newTheme = 'dark';
   } else {
     newTheme = 'light';
   }
-  console.log(`New theme is: ${newTheme}`);
   localStorage.setItem('theme', newTheme);
   updateTheme(newTheme);
 });
