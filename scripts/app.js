@@ -40,7 +40,6 @@ function updateTheme(thm) {
   else
     for (let i = 0; i < darkTheme.length; i++)
       document.documentElement.style.setProperty(colorNames[i], lightTheme[i]);
-  console.log(`End of update theme: ${localStorage.getItem('theme')}`);
 }
 
 if (!window.indexedDB) {
