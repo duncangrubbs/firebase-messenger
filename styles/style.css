@@ -128,7 +128,7 @@ button#logOut, button#theme {
 #messages {
   display: flex;
   flex-direction: column;
-  height: 80%;
+  min-height: 80%;
   width: 100%;
   overflow-y: scroll;
   flex-grow: 8;
