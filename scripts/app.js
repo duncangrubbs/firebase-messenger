@@ -56,6 +56,24 @@ if (!window.indexedDB) {
   }
 }
 
+function getDate(timestamp) {
+  const date = new Date(timestamp);
+  const seconds = Math.floor((new Date() - date) / 1000);
+
+  if (seconds < 3600) {
+    const minutes = Math.floor(seconds / 60)
+    return (minutes > 1) ? minutes + " minutes ago" : "Now";
+  } else if (seconds < 86400) {
+    const hours = Math.floor(seconds / 3600)
+    return (hours > 1) ? hours + " hours ago" : "1 hour ago";
+  } else {
+    const day = date.getDate();
+    const monthIndex = date.getMonth();
+    const year = date.getFullYear();
+    return `${monthNames[monthIndex]} ${day}, ${year}`;
+  }
+}
+
 // Anytime update theme is clicked, switch the theme
 $theme.addEventListener('click', () => {
   const currentTheme = localStorage.getItem('theme');
@@ -79,7 +97,7 @@ $logIn.addEventListener('click', () => {
     user = result.user;
 
     $wrapper.style.display = 'none';
-    $app.style.display = 'block';
+    $app.style.display = 'flex';
   }).catch(error => {
     console.log(error);
   });
@@ -93,7 +111,7 @@ $logOut.addEventListener('click', () => {
 
 firebase.auth().onAuthStateChanged(fireBaseUser => {
   if (fireBaseUser) {
-    user = fireBaseUser.email;
+    user = fireBaseUser.providerData[0];
     $wrapper.style.display = 'none';
     $app.style.display = 'flex';
   } else {
@@ -103,16 +121,25 @@ firebase.auth().onAuthStateChanged(fireBaseUser => {
 
 // END COMMENTED OUT SECTION
 
-const $send = document.getElementById('send');
+// const $send = document.getElementById('send');
 const $message = document.getElementById('message');
 const $messages = document.getElementById('messages');
 
 function addMessage(chat) {
   const div = document.createElement('div');
-  div.innerHTML = `<div class="name">${chat.name}</div><div class="lower">
-                    <div class="text">${chat.message}</div></div>`;
 
-  div.setAttribute('class', 'textMessage');
+  if (chat.userSent.uid === user.uid) {
+    div.innerHTML = `<div class="date">${getDate(chat.date)}</div><div class="lower">
+                    <img class="prof-img" src="${chat.userSent.photoURL}">
+                    <div class="text">${chat.message}</div></div>`;
+    div.setAttribute('class', 'textMessage');
+  } else {
+    div.innerHTML = `<div class="date">${getDate(chat.date)}</div><div class="lower">
+                    <div class="text">${chat.message}</div>
+                    <img class="prof-img--right" src="${chat.userSent.photoURL}"></div>`;
+    div.setAttribute('class', 'textMessageRight');
+  }
+
   $messages.appendChild(div);
   $message.value = '';
   $messages.scrollTop = $messages.scrollHeight;
@@ -122,11 +149,17 @@ const database = app.database();
 
 const databaseRef = database.ref().child('chat');
 
-$send.addEventListener('click', () => {
-  const chat = { name: user, message: $message.value };
+function sendMessage() {
+  if ($message.value !== '') {
+    const chat = { userSent: user, message: $message.value, date: new Date().getTime() };
+    databaseRef.push().set(chat);
+  }
+}
 
-  databaseRef.push().set(chat);
-});
+// SENDING WITH BUTTON
+// $send.addEventListener('click', () => {
+//   sendMessage();
+// });
 
 databaseRef.on('child_added', snapshot => {
   const chat = snapshot.val();
@@ -135,5 +168,5 @@ databaseRef.on('child_added', snapshot => {
 
 $message.addEventListener('keyup', evt => {
   if (evt.keyCode === 13)
-    $send.click();
+    sendMessage();
 });
