@@ -1,4 +1,4 @@
-# Firebase Messager
+# Firebase Messenger
 ## A messager app built with Firebase.
 
 ### How to contribute:
